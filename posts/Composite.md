@@ -243,11 +243,10 @@ Criação da classe concreta `Cliente` que vai ser o código de implementação:
 
 ## Padrão relacionados
 
-
-- Padrão Decorator, é freqüentemente usado com o padrão Composite. Quando decoradores e composições são usados juntos, eles têm normalmente uma classe-mãe comum. Assim, decoradores terão que suportar a interface de Component com operações como Add, Remove e GetChild.
-- Padrão Flyweight, permite compartilhar componentes, porém estes não mais podem referenciar seus pais.
-- Padrão Iterator, pode ser usado para percorrer os compostos.
-- Padrão Visitor, pode ser usado para localizar operações e comportamentos que seriam de outra forma distribuídos entre classes Composite e Leaf.
+- [Padrão Decorator]: Frequentemente usado com o padrão Composite. Quando decoradores e composições são usados juntos, eles têm normalmente uma classe-mãe comum. Assim, decoradores terão que suportar a interface de Component com operações como Add, Remove e GetChild.
+- [Padrão Flyweight]: Permite compartilhar componentes, porém estes não mais podem referenciar seus pais.
+- [Padrão Iterator]: Pode ser usado para percorrer os compostos.
+- [Padrão Visitor]: Pode ser usado para localizar operações e comportamentos que seriam de outra forma distribuídos entre classes Composite e Leaf.
 
 ## Referências
 
