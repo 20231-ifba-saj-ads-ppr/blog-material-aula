@@ -24,10 +24,14 @@ Peso mosca, Cache
 
 ## Motivação
 
-Algumas aplicações requerem um grande número de objetos que possuem algum estado compartilhado entre eles, essas aplicações poderiam se beneficiar da sua estruturação em objetos em todo o seu projeto, porém, dependendo de como é implementado, esse processo pode ser inaceitavelmente caro em termos de desempenho e uso de memória.<br>
-Por exemplo, os editores de texto orientados a objetos precisam criar objetos de caracteres para representar cada caractere que está no documento. Um objeto-caractere mantém informações sobre qual é o caractere, qual é sua fonte, qual é o tamanho do caractere, bem como a localização do caractere dentro do documento. Mesmo documentos de tamanhos moderados podem requerer centenas de milhares de objetos-caracteres, o que consumirá uma grande quantidade de memória, podendo incorrer num custo inaceitável em tempo de execução.<br>
-Nesse caso poderiamos aderir o padrão de projeto **Flyweight**, que utilizará o conceito de estado intrínseco e extrínseco, onde o estado intrínseco é armazenado no flyweight, e consiste de informações independentes do contexto do flyweight, logo ele é a parte que pode ser compartilhada. Já o estado extrínseco, depende e varia do contexto passado pelo objetos-clientes quando necessário, portanto, não são compartilhados.<br>
-Nesse exemplo o que seria armazenado no estado intrínseco seria o codigo do caractere solicitado, e no estado extrínseco seria armazenado outras informações que podem variar, como fonte, cor e outras informações que dependem do contexto que o flyweight necessita.<br>
+Algumas aplicações requerem um grande número de objetos que possuem algum estado compartilhado entre eles, essas aplicações poderiam se beneficiar da sua estruturação em objetos em todo o seu projeto, porém, dependendo de como é implementado, esse processo pode ser inaceitavelmente caro em termos de desempenho e uso de memória.
+
+Por exemplo, os editores de texto orientados a objetos precisam criar objetos de caracteres para representar cada caractere que está no documento. Um objeto-caractere mantém informações sobre qual é o caractere, qual é sua fonte, qual é o tamanho do caractere, bem como a localização do caractere dentro do documento. Mesmo documentos de tamanhos moderados podem requerer centenas de milhares de objetos-caracteres, o que consumirá uma grande quantidade de memória, podendo incorrer num custo inaceitável em tempo de execução.
+
+Nesse caso poderiamos aderir o padrão de projeto **Flyweight**, que utilizará o conceito de estado intrínseco e extrínseco, onde o estado intrínseco é armazenado no flyweight, e consiste de informações independentes do contexto do flyweight, logo ele é a parte que pode ser compartilhada. Já o estado extrínseco, depende e varia do contexto passado pelo objetos-clientes quando necessário, portanto, não são compartilhados.
+
+Nesse exemplo o que seria armazenado no estado intrínseco seria o codigo do caractere solicitado, e no estado extrínseco seria armazenado outras informações que podem variar, como fonte, cor e outras informações que dependem do contexto que o flyweight necessita.
+
 Uma vez que o número de objetos de caracteres diferentes é muito menor que o número de caracteres do documento, o número total de objetos é 
 menor do que aquele que seria usado por outra implementação. 
 - Um documento no qual todos os caracteres aparecem na mesma fonte tipográfica e na mesma cor colocará algo na ordem de 100 objetos de caracteres, independente do comprimento do documento.
@@ -128,13 +132,12 @@ O padrão Flyweight tem os seguintes benefícios e desvantagens:
 
 ## Implementação
 
+Um exemplo de utilização do padrão flyweight que podemos demonstrar, seria na criação de NPC's em um jogo, onde o desenvolvedor precisa criar varias instancias de pessoas para povoar uma cidade, com isso ele poderia aplicar o flyweight, compartilhando o objeto pessoa, e passando separado o que seria o estado extrínseco, ou seja, os detalhes que deveriam variar de cada pessoa, de acordo com o contexto.
 
 
 ## Exemplo de código
 
-```java
 
-```
 ## Usos conhecidos
 
 - Um exemplo do uso do Flyweight é com os navegadores da Web modernos, que usam essa técnica para evitar o carregamento das mesmas imagens duas vezes. Quando o navegador carrega uma página da Web, ele percorre todas as imagens dessa página. O navegador carrega todas as novas imagens da Internet e as coloca no cache interno. Para imagens já carregadas, é criado um objeto flyweight, que possui alguns dados exclusivos, como posição na página, mas todo o resto é referenciado ao armazenado em cache.
