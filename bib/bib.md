@@ -114,7 +114,7 @@
 
 [^MACORATTI_DIP]: Princípio da Inversão da Dependência. [https://macoratti.net/20/05/c_invdep1.htm](https://macoratti.net/20/05/c_invdep1.htm)
 
-[^SourceMaking]: Object Pool Design Pattern. [https://sourcemaking.com/design_patterns/object_pool](https://sourcemaking.com/design_patterns/object_pool) 
+[^SourceMaking]: Design Patterns. [https://sourcemaking.com/design_patterns/](https://sourcemaking.com/design_patterns/) 
 
 [^ODesign]: Object Pool Pattern. [https://www.oodesign.com/object-pool-pattern](https://www.oodesign.com/object-pool-pattern)
 
@@ -254,3 +254,5 @@
 [^Unity3D]: Unity 3D - Desenvolvimento de Games [https://www.devmedia.com.br/unity-3d-introducao-ao-desenvolvimento-de-games/30653](https://www.devmedia.com.br/unity-3d-introducao-ao-desenvolvimento-de-games/30653)
 
 [^ASPNET]: ASP.NET CORE [https://dotnet.microsoft.com/pt-br/learn/aspnet/what-is-aspnet-core](https://dotnet.microsoft.com/pt-br/learn/aspnet/what-is-aspnet-core)
+
+[^OODesign]: Flyweight Pattern [https://www.oodesign.com/flyweight-pattern](https://www.oodesign.com/flyweight-pattern)
