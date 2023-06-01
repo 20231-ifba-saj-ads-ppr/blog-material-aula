@@ -17,11 +17,10 @@ public class Pacote extends Component {
     }
 
     public double getPreco() {
-        double total = 0;
         for (Component child : children) {
-            total += child.getPreco();
+            preco += child.getPreco();
         }
-        return total;
+        return preco;
     }
 
     @Override
