@@ -27,122 +27,49 @@ Aplicações gráficas permitem aos usuários construir diagramas completos a pa
 Um problema presente nessa abordagem é que o código que usa essas classes deve tratar objetos primitivos e objetos recipientes de modo diferente, mesmo se na maioria das vezes o usuária vai tratar de forma idêntica. E distinguir a diferença entre os objetos torna a aplicação mais complexa.
 
 <p align="center">
-  <img src="imagens/estruturaExemploGof.png" alt="Estrutura de um objeto Composite">
+  <img src="imagens/composite/estruturaExemploGof.png" alt="Estrutura de um objeto Composite">
 </p>
 
 #####Código:
 
-Criação da classe abstrata `ComponentGraphic` que representa o componente gráfico base. Possuindo o método `Draw()` que deve ser implementado por todos seus filhos, sejam eles compostos ou folhas. E outros métodos que vão ser utilizados somente pelos filhos compostos.
+Criação da classe abstrata `Graphic` que representa o componente gráfico base. Possuindo o método `draw()` que deve ser implementado por todos seus filhos, sejam eles compostos ou folhas. E outros métodos que vão ser utilizados somente pelos filhos compostos.
 
-```java
-package GofExemplo;
-public abstract class ComponentGraphic {
-    abstract void Draw();
-    public void add(ComponentGraphic graphic) {};
-    public void remove(ComponentGraphic graphic) {};
-}
-```
+@[code](./code/gof/composite/gofExemplo/Graphic.java)
 
-Criação da classe concreta `Leaf` que estende a classe abstrata `ComponentGraphic` e representa um elemento visual.  
+Criação da classe concreta `Line` que estende a classe abstrata `Graphic` e representa um elemento visual.  
 
-```java
-package GofExemplo;
-public class Leaf extends ComponentGraphic{
-    private String nome;
-    public Leaf(String nome) {
-        this.nome = nome;
-    }
-    @Override
-    public void Draw() { /*Lógica...*/ }
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    @Override
-    public String toString() {
-        return "Nome: " + nome;
-    }
-}
-```
+@[code](./code/gof/composite/gofExemplo/Line.java)
 
-Criação da classe concreta `CompositePicture` que estende a classe abstrata `ComponentGraphic` e representa uma imagem composta por vários componentes gráficos.
+Criação da classe concreta `Rectangle` que estende a classe abstrata `Graphic` e representa um elemento visual.  
 
-```java
-package GofExemplo;
-import java.util.ArrayList;
-import java.util.List;
-public class CompositePicture extends ComponentGraphic {
-    private List<ComponentGraphic> children = new ArrayList<>();
-    private String nome;
-    public CompositePicture(String nome) {
-        this.nome = nome;
-    }
-    @Override
-    public void Draw() { /*Lógica...*/ }
-    @Override
-    public void add(ComponentGraphic graphic) {
-        children.add(graphic);
-    }
-    @Override
-    public void remove(ComponentGraphic graphic) {
-        children.remove(graphic);
-    }
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    @Override
-    public String toString() {
-        return "Nome: " + nome + " " + children + "";
-    }
-}
-```
+@[code](./code/gof/composite/gofExemplo/Rectangle.java)
+
+Criação da classe concreta `Text` que estende a classe abstrata `Graphic` e representa um elemento visual.  
+
+@[code](./code/gof/composite/gofExemplo/Text.java)
+
+Criação da classe concreta `Picture` que estende a classe abstrata `Graphic` e representa uma imagem composta por vários componentes gráficos.
+
+@[code](./code/gof/composite/gofExemplo/Picture.java)
 
 Criação da classe concreta `Cliente` que contém o método `main()` e demonstra o uso dos componentes gráficos.
 
-```java
-package GofExemplo;
-public class Cliente {
-    public static void main(String[] args) {
-        ComponentGraphic line = new Leaf("Linha");
-        ComponentGraphic rectangle = new Leaf("Retângulo");
-        ComponentGraphic text = new Leaf("Texto");
-
-        ComponentGraphic picture1 = new CompositePicture("Picture 1");
-        picture1.add(text);
-        picture1.add(line);
-        picture1.add(rectangle);
-        System.out.println(picture1);
-        //Nome: Picture 1 [Nome: Linha, Nome: Retângulo, Nome: Texto]
-
-        ComponentGraphic picture2 = new CompositePicture("Picture 2");
-        picture2.add(picture1);
-        picture2.add(line);
-        picture2.add(rectangle);
-        System.out.println(picture2);
-        //Nome: Picture 2 [Nome: Picture 1 [Nome: Linha, Nome: Retângulo, Nome: Texto], Nome: Linha, Nome: Retângulo]
-    }
-}
-```
+@[code](./code/gof/composite/gofExemplo/Cliente.java)
 
 <p align="center">
-  <img src="imagens/estruturaMotivacao.png" alt="Estrutura de um objeto Composite">
+  <img src="imagens/composite/estruturaMotivacao.png" alt="Estrutura de um objeto Composite">
 </p>
 
 ## Estrutura
 
 <p align="center">
-  <img src="imagens/estrutura.png" alt="Estrutura de um objeto Composite">
+  <img src="imagens/composite/estrutura.png" alt="Estrutura de um objeto Composite">
 </p>
 
 Uma estrutura típica do Composite pode ser parecida com essa:
 
 <p align="center">
-  <img src="imagens/estruturaComposite.png" alt="Estrutura de um objeto Composite">
+  <img src="imagens/composite/estruturaComposite.png" alt="Estrutura de um objeto Composite">
 </p>
 
 ## Participantes
@@ -291,228 +218,23 @@ public class Conteiner extends Componente {
 
 ## Exemplo de código
 
-Considerano o cenário onde precisa ser desenvolvido um sistema para o gerenciamento de uma empresa e-commerce que vende produtos eletrônicos. A empresa vende variados tipos de eletrônicos como smartphones e tablets, cada produto possui informações específicas como nome, preço, descriçao e id. Os cliente podem montar seus pacotes personalizados da maneira que quiser, contendo um ou mais produtos, independente do seu tipo. Esse pacotes podem conter outros pacotes dentro deles, formando assim a estrutura hierárquica.
+Considerando o cenário onde precisa ser desenvolvido um sistema para o gerenciamento de uma empresa e-commerce que vende produtos eletrônicos. A empresa vende variados tipos de eletrônicos como smartphones e tablets, cada produto possui informações específicas como nome, preço, descrição e id. Os cliente podem montar seus pacotes personalizados da maneira que quiser, contendo um ou mais produtos, independente do seu tipo. Esse pacotes podem conter outros pacotes dentro deles, formando assim a estrutura hierárquica.
 
-```java 
-package MeuExemplo;
-public abstract class Component {
-    abstract double getPreco();
-    abstract String getNome();
-    abstract String getDescricao();
-    abstract String getId();
-    
-    public void adicionar(Component... produtos) {}
-    public void remover(Component... produtos) {}
-    public Component clone() {
-        return null;}
-}
-```
+Criação da classe abstrata Component, que vai conter os métodos presente em todos os objetos, sejam eles Leaf ou Composite.
+
+@[code](./code/gof/composite/meuExemplo/Component.java)
 
 Criação da classe concreta `Produto` que estende a classe abstrata `Component`, essa classe é o Leaf, ou seja, é um tipo primitivo que pode ser alocada em uma classe composta(Composite).
 
-```java
-package MeuExemplo;
-
-public class Produto extends Component {
-    private double preco;
-    private String nome;
-    private String descricao;
-    private String id;
-
-    public Produto(String nome, String descricao, String id, double preco) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.id = id;
-        this.preco = preco;
-    }
-
-    @Override
-    public double getPreco() {
-        return preco;
-    }
-
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public String getDescricao() {
-        return descricao;
-    }
-
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public Component clone() {
-        return new Produto(nome, descricao, id, preco);
-    }
-
-    @Override
-    public String toString() {
-        return "Nome: " + nome + " - Preço: " + preco + " - ID: " + id;
-    }
-}
-```
+@[code](./code/gof/composite/meuExemplo/Produto.java)
 
 Criação da classe concreta `Pacote` que estende a classe abstrata `Component`, essa classe é o Composite, ou seja, ela vai poder receber filhos. 
 
-```java 
-package MeuExemplo;
+@[code](./code/gof/composite/meuExemplo/Pacote.java)
 
-import java.util.ArrayList;
-import java.util.List;
+Criação da classe concreta `Cliente` que vai ser o código de implementação:
 
-public class Pacote extends Component {
-    private List<Component> children = new ArrayList<>();
-    private double preco;
-    private String nome;
-    private String descricao;
-    private String id;
-
-    public Pacote(String nome, String descricao, String id) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.id = id;
-    }
-
-    public double getPreco() {
-        double total = 0;
-        for (Component child : children) {
-            total += child.getPreco();
-        }
-        return total;
-    }
-
-    @Override
-    public String getNome() {
-        return nome;
-    }
-    
-    @Override
-    public String getDescricao() {
-        return descricao;
-    }
-
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public void adicionar(Component... produtos) {
-        for (Component produto : produtos) {
-            children.add(produto);
-        }
-    }
-
-    @Override
-    public void remover(Component... produtos) {
-        for (Component produto : produtos) {
-            children.remove(produto);
-        }
-    }
-
-    public List<String> getNomes() {
-        List<String> nomesProdutos = new ArrayList<>();
-        for (Component child : children) {
-            nomesProdutos.add(child.getNome());
-        }
-        return nomesProdutos;
-    }
-
-    public List<String> getDescricoes() {
-        List<String> descricoes = new ArrayList<>();
-        for (Component child : children) {
-            descricoes.add(child.getDescricao());
-        }
-        return descricoes;
-    }
-
-    public List<String> getIds() {
-        List<String> ids = new ArrayList<>();
-        for (Component child : children) {
-            ids.add(child.getId());
-        }
-        return ids;
-    }
-
-    @Override
-    public Component clone() {
-        Component clone = new Pacote(nome, descricao, id);
-        children.forEach(
-            child -> {
-                clone.adicionar(child.clone());
-            }
-        );
-        return clone();
-    }
-
-    @Override
-    public String toString() {
-        return "Nome: " + nome + " " + children + " - ID: " + id;
-    }
-}
-```
-
-Criação da classe concreta cliente que vai ser o código de implementação:
-
-```java 
-package MeuExemplo;
-
-public class Cliente {
-    public static void main(String[] args) {
-        Component celular1 = new Produto("Xiaomi Redmi Note 12", "Marca: Xiaomi,\nAno: 2023,\nRAM: 4GB,\nROM: 128GB,\nProcessador: Snapdragon\n", "RN100", 1.171);
-        Component celular2 = celular1.clone();
-        Component celular3 = celular1.clone();
-
-        Component pacote1 = new Pacote("Redmi Note 12", "Pacote com 3 unidades do smartphone Note 12", "RN1000");
-        pacote1.adicionar(celular1, celular2, celular3);
-
-        System.out.println(pacote1);
-        //Nome: Redmi Note 12 
-          //[Nome: Xiaomi Redmi Note 12 - Preço: 1.171 - ID: RN100,
-          //Nome: Xiaomi Redmi Note 12 - Preço: 1.171 - ID: RN100,
-          //Nome: Xiaomi Redmi Note 12 - Preço: 1.171 - ID: RN100] - ID: RN1000
-        System.out.println(pacote1.getPreco());//3.513
-        
-        Component tablet1 = new Produto("Lenovo Tab P11 Plus", "Pacote: Lenovo,\nAno: 2021,\nRAM: 4GB,\nROM: 64GB\n", "LTPP100", 1.899);
-        Component tablet2 = tablet1.clone();
-        Component tablet3 = tablet1.clone();
-
-        Component pacote2 = new Pacote("Tab P11 Plus", "Lote com 3 unidades do tablet P11", "LTPP1000");
-        pacote2.adicionar(tablet1, tablet2, tablet3);
-
-        System.out.println(pacote2);
-        //Nome: Tab P11 Plus 
-          //[Nome: Lenovo Tab P11 Plus - Preço: 1.899 - ID: LTPP100,
-          //Nome: Lenovo Tab P11 Plus - Preço: 1.899 - ID: LTPP100,
-          //Nome: Lenovo Tab P11 Plus - Preço: 1.899 - ID: LTPP100] - ID: LTPP1000
-        System.out.println(pacote2.getPreco());//5.697
-
-        Component pacote3 = new Pacote("Redmi Note 12 || Tab P11 Plus", "Pacote com 2 pacotes, um com celulares e outro com tablets, além de Redmi Note 12 indívidual", "RNLTPP100");
-        Component celular4 = celular1.clone();
-        pacote3.adicionar(pacote1, pacote2, celular4);
-
-        System.out.println(pacote3);
-        //Nome: Redmi Note 12 || Tab P11 Plus 
-          //[Nome: Redmi Note 12 
-            //[Nome: Xiaomi Redmi Note 12 - Preço: 1.171 - ID: RN100, 
-            //Nome: Xiaomi Redmi Note 12 - Preço: 1.171 - ID: RN100,
-            //Nome: Xiaomi Redmi Note 12 - Preço: 1.171 - ID: RN100] - ID: RN1000,
-          //Nome: Tab P11 Plus 
-            //[Nome: Lenovo Tab P11 Plus - Preço: 1.899 - ID: LTPP100,
-            //Nome: Lenovo Tab P11 Plus - Preço: 1.899 - ID: LTPP100,
-            //Nome: Lenovo Tab P11 Plus - Preço: 1.899 - ID: LTPP100] - ID: LTPP1000,
-          //Nome: Xiaomi Redmi Note 12 - Preço: 1.171 - ID: RN100] - ID: RNLTPP100
-        System.out.println(pacote3.getPreco());//10.381
-    }
-}
-```
-
+@[code](./code/gof/composite/meuExemplo/Cliente.java)
 ## Usos conhecidos
 
 - Java AWT e Swing são baseados em Composite View, o padrão é utilizado para representar a hierarquia dos componentes gráficos.
@@ -522,10 +244,10 @@ public class Cliente {
 ## Padrão relacionados
 
 
-- [Padrão Decorator]: É frequentemente usado com o padrão Composite. Quando decoradores e composições são usados juntos, eles têm normalmente uma classe-mãe comum. Assim, decoradores terão que suportar a interface de Component com operações como Add, Remove e GetChild.
-- [Padrão Flyweight]: Permite compartilhar componentes, porém estes não mais podem referenciar seus pais.
-- [Padrão Iterator]: Pode ser usado para percorrer os compostos.
-- [Padrão Visitor]: Pode ser usado para localizar operações e comportamentos que seriam de outra forma distribuídos entre classes Composite e Leaf.
+- Padrão Decorator, é freqüentemente usado com o padrão Composite. Quando decoradores e composições são usados juntos, eles têm normalmente uma classe-mãe comum. Assim, decoradores terão que suportar a interface de Component com operações como Add, Remove e GetChild.
+- Padrão Flyweight, permite compartilhar componentes, porém estes não mais podem referenciar seus pais.
+- Padrão Iterator, pode ser usado para percorrer os compostos.
+- Padrão Visitor, pode ser usado para localizar operações e comportamentos que seriam de outra forma distribuídos entre classes Composite e Leaf.
 
 ## Referências
 
