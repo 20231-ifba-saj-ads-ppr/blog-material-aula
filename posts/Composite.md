@@ -155,25 +155,25 @@ public abstract class Componente {
 
     - Representação de outra classe folha chamada `Folha2`:
 
-            ```java
-            public class Folha2 extends Componente{
-                //Atributos
-                //Constructor
-                //Gets e Setters
-                @Override
-                public String operacao1() {
-                    //Lógica do método
-                }
-                @Override
-                public double operacao2() {
-                    //Lógica do método
-                }
-                @Override
-                public Boolean opercaon3() {
-                    //Lógica do método
-                }
+        ```java
+        public class Folha2 extends Componente{
+            //Atributos
+            //Constructor
+            //Gets e Setters
+            @Override
+            public String operacao1() {
+                //Lógica do método
             }
-            ```
+            @Override
+            public double operacao2() {
+                //Lógica do método
+            }
+            @Override
+            public Boolean opercaon3() {
+                //Lógica do método
+            }
+        }
+        ```
 - 4. Crie uma classe contêiner para representar elementos complexos. Nessa classe crie um vetor para armazenar referências aos sub-elementos. O vetor deve ser capaz de armazenar tanto folhas como contêineres, então certifique-se que ele foi declarado com um tipo de classe abstrata componente.
 
 ```java
