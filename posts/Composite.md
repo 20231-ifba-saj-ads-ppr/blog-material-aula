@@ -251,6 +251,9 @@ Criação da classe concreta `Cliente` que vai ser o código de implementação:
 
 ## Referências
 
+- Gamma Erich - Padrões de Projetos - Soluções Reutilizáveis
+- Otávio Miranda - Composite Teoria - Padrões de Projeto - Parte 14/45 https://www.youtube.com/watch?v=I0RqHDFQjVY&list=PLbIBj8vQhvm0VY5YrMrafWaQY2EnJ3j8H&index=15
+- Otávio Miranda - Composite Prática - Padrões de Projeto - Parte 15/45 https://www.youtube.com/watch?v=VFGaqoxA_lo&list=PLbIBj8vQhvm0VY5YrMrafWaQY2EnJ3j8H&index=15
 - https://sergiotaborda.wordpress.com/desenvolvimento-de-software/java/patterns/composite/#:~:text=AWT%20e%20Swing%20são%20baseados,com%20as%20páginas%20de%20dados.
 
 <!-- @include: ../bib/bib.md -->
