@@ -12,6 +12,7 @@ public class Cliente {
         picture1.add(text);
 
         System.out.println(picture1);
+        //Nome: Picture 1 [Nome: Linha, Nome: Retângulo, Nome: Texto]
 
         Graphic picture2 = new Picture("Picture 2");
         picture2.add(picture1);
@@ -19,5 +20,6 @@ public class Cliente {
         picture2.add(rectangle);
 
         System.out.println(picture2);
+        //Nome: Picture 2 [Nome: Picture 1 [Nome: Linha, Nome: Retângulo, Nome: Texto], Nome: Linha, Nome: Retângulo]
     }
 }

@@ -115,7 +115,7 @@ Benefícios e desvantagens do padrão Composite:
 
 ## Implementação
 
-- 1. Realizar a certificação do modelo de sua aplicação para saber se ela pode ser representada como uma estrutura de árvore. Para isso tente quebrar o modelo em elementos simples e contêineres, lembrando que o container pode conter tanto elementos simples como outros contêineres.
+- 1. Realizar a certificação do modelo de sua aplicação para saber se ela pode ser representada como uma estrutura de árvore. Para isso tente quebrar o modelo em elementos simples e contêineres, lembrando que o conteiner pode conter tanto elementos simples como outros contêineres.
 
 - 2. Declare a classe abstrata componente com uma lista de métodos que façam sentido para os componentes complexos e simples.
 
