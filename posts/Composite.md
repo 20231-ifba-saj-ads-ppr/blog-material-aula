@@ -214,7 +214,7 @@ public class Conteiner extends Componente {
 }
 ```
 
-É importante ter em mente que as operações podem ser declaradas dentro da classe abstrata componente e isso viola o princópio de segregação de interface porque os métodos vão estar vazios na classe folha. Mas, o cliente será capaz de tratar todos os elementos de forma igual, mesmo ao montar a árvore.
+É importante ter em mente que as operações podem ser declaradas dentro da classe abstrata componente e isso viola o princípio de segregação de interface porque os métodos vão estar vazios na classe folha. Mas, o cliente será capaz de tratar todos os elementos de forma igual, mesmo ao montar a árvore.
 
 ## Exemplo de código
 
