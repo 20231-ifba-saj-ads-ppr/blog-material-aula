@@ -15,7 +15,8 @@ public class Pacote extends Component {
         this.descricao = descricao;
         this.id = id;
     }
-
+    
+    @Override
     public double getPreco() {
         for (Component child : children) {
             preco += child.getPreco();
