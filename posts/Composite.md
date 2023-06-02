@@ -27,7 +27,7 @@ Aplicações gráficas permitem aos usuários construir diagramas completos a pa
 Um problema presente nessa abordagem é que o código que usa essas classes deve tratar objetos primitivos e objetos recipientes de modo diferente, mesmo se na maioria das vezes o usuária vai tratar de forma idêntica. E distinguir a diferença entre os objetos torna a aplicação mais complexa.
 
 <p align="center">
-  <img src="imagens/composite/estruturaExemploGof.png" alt="Estrutura de um objeto Composite">
+  <img src="./imagens/composite/estruturaExemploGof.png" alt="Estrutura de um objeto Composite">
 </p>
 
 #####Código:
@@ -57,19 +57,19 @@ Criação da classe concreta `Cliente` que contém o método `main()` e demonstr
 @[code](./code/gof/composite/gofExemplo/Cliente.java)
 
 <p align="center">
-  <img src="imagens/composite/estruturaMotivacao.png" alt="Estrutura de um objeto Composite">
+  <img src="./imagens/composite/estruturaMotivacao.png" alt="Estrutura de um objeto Composite">
 </p>
 
 ## Estrutura
 
 <p align="center">
-  <img src="imagens/composite/estrutura.png" alt="Estrutura de um objeto Composite">
+  <img src="./imagens/composite/estrutura.png" alt="Estrutura de um objeto Composite">
 </p>
 
 Uma estrutura típica do Composite pode ser parecida com essa:
 
 <p align="center">
-  <img src="imagens/composite/estruturaComposite.png" alt="Estrutura de um objeto Composite">
+  <img src="./imagens/composite/estruturaComposite.png" alt="Estrutura de um objeto Composite">
 </p>
 
 ## Participantes
@@ -86,13 +86,12 @@ Uma estrutura típica do Composite pode ser parecida com essa:
 ## Aplicabilidade
 
 Utilize do padrão Composite quando:  
-- Quiser representar uma composição hierárquica de objetos.
-- Quiser que os clientes sejam capazes de ignorar a diferença entre composições(Composite) de objetos e objetos individuais(Leaf) e tratem todos os objetos na estrutura composta de maneira uniforme.
 
+- Quiser que os clientes sejam capazes de ignorar a diferença entre composições(Composite) de objetos e objetos individuais(Leaf) e tratem todos os objetos na estrutura composta de maneira uniforme.
 
 ## Colaborações
 
-- Os clientes utilizam da classe abstrata `Component` para interagir com objetos presentes na estrutura composta. Se o receptor for um 'Leaf', a solicitação vai ser tratada diretamente e se o receptor é um 'Composite', ele vai repassar as solicitações para os seus componentes filhos('Leaf').
+- Os clientes utilizam da classe abstrata `Component` para interagir com objetos presentes na estrutura composta. Se o receptor for um `Leaf`, a solicitação vai ser tratada diretamente e se o receptor é um `Composite`, ele vai repassar as solicitações para os seus componentes filhos(`Leaf`).
 
 ## Consequências
 
@@ -101,118 +100,29 @@ Benefícios e desvantagens do padrão Composite:
 ### Benefícios 
 
 - Facilidade em criar objetos complexos por composição
-- Facilidade em gerar uma hierárquia de objetos
+- Facilidade em gerar uma hierarquia de objetos
 - Facilidade em utilizar polimorfismo e recursão
-- Torna simples a adição de novos tipos de elementos na estrutura, seja Composite ou Leaf vão funcionar automaticamente com as estruturas existentes e o código do cliente.
+- Torna simples a adição de novos tipos de elementos na estrutura, seja `Composite` ou `Leaf` vão funcionar automaticamente com as estruturas existentes e o código do cliente.
 - Torna o cliente simples, pois eles podem tratar estruturas compostas e objetos individuais de maneira uniforme. E normalmente os clientes não sabem se estão tratando uma folha ou objetos composto, além de que eles não deveriam se preocupar com isso.
 
 ### Desvantagens
 
 - Torna o projeto excessivamente genérico. A desvantagem de facilitar o acréscimo de novos componentes é que isso torna mais difícil restringir os componentes de uma composição. Algumas vezes, você deseja uma composição que tenha somente certos componentes, e com o padrão Composite você não pode confiar no sistema de tipos para garantir a obediência a essas restrições. Ao invés disso, terá que usar verificações e testes em tempo de execução. 
 
-- A depender da estrutura, pode quebrar o princípio da segregação de interface. Objetos do tipo 'Leaf' tendem a ter métodos que não usam ou não fazem nada.
+- A depender da estrutura, pode quebrar o princípio da segregação de interface. Objetos do tipo `Leaf` tendem a ter métodos que não usam ou não fazem nada.
 
 
 ## Implementação
 
-- 1. Realizar a certificação do modelo de sua aplicação para saber se ela pode ser representada como uma estrutura de árvore. Para isso tente quebrar o modelo em elementos simples e contêineres, lembrando que o conteiner pode conter tanto elementos simples como outros contêineres.
+1. Realizar a certificação do modelo de sua aplicação para saber se ela pode ser representada como uma estrutura de árvore. Para isso tente quebrar o modelo em elementos simples e contêineres, lembrando que o contêiner pode conter tanto elementos simples como outros contêineres.
 
-- 2. Declare a classe abstrata componente com uma lista de métodos que façam sentido para os componentes complexos e simples.
+2. Declare a classe abstrata componente com uma lista de métodos que façam sentido para os componentes complexos e simples.
 
-```java
-public abstract class Componente {
-    abstract String operacao1();
-    abstract double operacao2();
-    abstract Boolean operacao3();
+3. Crie uma classe folha que represente elementos simples, no mesmo programa pode ter múltiplas classes folhas diferentes.
 
-    public void adicionar(Componente produto) {}
-    public void remover(Componente produto) {}
-}
-```
+4. Crie uma classe contêiner para representar elementos complexos. Nessa classe crie um vetor para armazenar referências aos sub-elementos. O vetor deve ser capaz de armazenar tanto folhas como contêineres, então certifique-se que ele foi declarado com um tipo de classe abstrata componente.
 
-- 3. Crie uma classe folha que represente elementos simples, no mesmo programa pode ter múltiplas classes folhas diferentes.
-
-    - Representação de uma classe folha chamada `Folha1`:
-        ```java
-        public class Folha1 extends Componente{
-            //Atributos
-            //Constructor
-            //Gets e Setters
-            @Override
-            public String operacao1() {
-                //Lógica do método
-            }
-            @Override
-            public double operacao2() {
-                //Lógica do método
-            }
-            @Override
-            public Boolean opercaon3() {
-                //Lógica do método
-            }
-        }
-        ```
-
-    - Representação de outra classe folha chamada `Folha2`:
-
-        ```java
-        public class Folha2 extends Componente{
-            //Atributos
-            //Constructor
-            //Gets e Setters
-            @Override
-            public String operacao1() {
-                //Lógica do método
-            }
-            @Override
-            public double operacao2() {
-                //Lógica do método
-            }
-            @Override
-            public Boolean opercaon3() {
-                //Lógica do método
-            }
-        }
-        ```
-- 4. Crie uma classe contêiner para representar elementos complexos. Nessa classe crie um vetor para armazenar referências aos sub-elementos. O vetor deve ser capaz de armazenar tanto folhas como contêineres, então certifique-se que ele foi declarado com um tipo de classe abstrata componente.
-
-```java
-public class Conteiner extends Componente {
-    private List<Componente> filho = new ArrayList<>();
-    //Atributos
-    //Constructor
-    //Gets e Setters
-    @Override
-    public String operacao1() {
-        //Lógica do método
-    }
-    @Override
-    public double operacao2() {
-        //Lógica do método
-    }
-    @Override
-    public Boolean opercaon3() {
-        //Lógica do método
-    }
-}
-```
-
-- 5. Por fim, defina os métodos para adicionar e remover os elementos filhos no contêiner.
-
-```java
-public class Conteiner extends Componente {
-    //...
-    @Override
-    public void adicionar(Componente produto) {
-        filho.add(produto);
-    }
-    @Override
-    public void remover(Componente produto) {
-        filho.remove(produto);
-    }
-    //...
-}
-```
+5. Por fim, defina os métodos para adicionar e remover os elementos filhos no contêiner.
 
 É importante ter em mente que as operações podem ser declaradas dentro da classe abstrata componente e isso viola o princípio de segregação de interface porque os métodos vão estar vazios na classe folha. Mas, o cliente será capaz de tratar todos os elementos de forma igual, mesmo ao montar a árvore.
 
@@ -224,11 +134,11 @@ Criação da classe abstrata Component, que vai conter os métodos presente em t
 
 @[code](./code/gof/composite/meuExemplo/Component.java)
 
-Criação da classe concreta `Produto` que estende a classe abstrata `Component`, essa classe é o Leaf, ou seja, é um tipo primitivo que pode ser alocada em uma classe composta(Composite).
+Criação da classe concreta `Produto` que estende a classe abstrata `Component`, essa classe é o `Leaf`, ou seja, é um tipo primitivo que pode ser alocada em uma classe composta(`Composite`).
 
 @[code](./code/gof/composite/meuExemplo/Produto.java)
 
-Criação da classe concreta `Pacote` que estende a classe abstrata `Component`, essa classe é o Composite, ou seja, ela vai poder receber filhos. 
+Criação da classe concreta `Pacote` que estende a classe abstrata `Component`, essa classe é o `Composite`, ou seja, ela vai poder receber filhos. 
 
 @[code](./code/gof/composite/meuExemplo/Pacote.java)
 

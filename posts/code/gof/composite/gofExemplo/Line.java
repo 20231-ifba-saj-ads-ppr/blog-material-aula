@@ -1,25 +1,19 @@
 package gofExemplo;
 
 public class Line extends Graphic{
-    private String nome;
+    private Posicao posicao;
 
-    public Line(String nome) {
-        this.nome = nome;
+    public Line(Posicao posicao) {
+        this.posicao = posicao;
     }
 
     @Override
     public void draw() { /*Lógica...*/ }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    //Getters e setters
 
     @Override
     public String toString() {
-        return "Nome: " + nome;
+        return "Line " + posicao;
     }
 }
