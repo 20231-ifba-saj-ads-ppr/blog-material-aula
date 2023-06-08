@@ -37,31 +37,31 @@ Código do cenário:
 
 Classe abstrata `VisualComponent`, para criar um padrão de objetos que utilizaram dela. Nesse caso tem somente a classe `TextView` e a classe `Decorator`.
 
-@[code](./code/gof/decorator/exemploGof/exemploMotivacaoGof/VisualComponent.java)
+@[code](./code/gof/decorator/exemploGof/VisualComponent.java)
 
 Classe `TextView` que estende a classe `VisualComponent`.
 
-@[code](./code/gof/decorator/exemploGof/exemploMotivacaoGof/TextView.java)
+@[code](./code/gof/decorator/exemploGof/TextView.java)
 
 Classe `Decorator` que estende a classe `VisualComponent`, essa classe pode ser interface, abstrata ou uma classe normal(utilizada no código). Essa classe vai permitir que o objeto `TextView` seja 'copiado'.
 
-@[code](./code/gof/decorator/exemploGof/exemploMotivacaoGof/Decorator.java)
+@[code](./code/gof/decorator/exemploGof/Decorator.java)
 
 Classe `ScrollDecorator` que estende a classe `Decorator`, sendo assim a classe vai poder 'copiar' o objeto `TextView` e adicionar novos métodos, nesse caso o scroll.
 
-@[code](./code/gof/decorator/exemploGof/exemploMotivacaoGof/ScrollDecorator.java)
+@[code](./code/gof/decorator/exemploGof/ScrollDecorator.java)
 
 Classe `ScrollPosition`, utilizada pela classe `ScrollDecorator` para definir o local em que o scroll vai ser implementado.
 
-@[code](./code/gof/decorator/exemploGof/exemploMotivacaoGof/ScrollDecorator.java)
+@[code](./code/gof/decorator/exemploGof/ScrollPosition.java)
 
 Classe `BorderDecorator` que estende a classe `Decorator`, sendo assim a classe vai poder 'copiar' o objeto `TextView` e adicionar novos métodos, nesse caso a borda.
 
-@[code](./code/gof/decorator/exemploGof/exemploMotivacaoGof/BorderDecorator.java)
+@[code](./code/gof/decorator/exemploGof/BorderDecorator.java)
 
 Classe `Client`, onde ficará o código de compilação do programa.
 
-@[code](./code/gof/decorator/exemploGof/exemploMotivacaoGof/Client.java)
+@[code](./code/gof/decorator/exemploGof/Client.java)
 
 
 ## Aplicabilidade
@@ -120,15 +120,15 @@ sempre delega para o objeto envolvido).
 
 ## Exemplo de código
 
-@[code](./code/gof/decorator/exemploGof/meuExemplo/Client.java)
+@[code](./code/gof/decorator/meuExemplo/Client.java)
 
-@[code](./code/gof/decorator/exemploGof/meuExemplo/Pedido.java)
+@[code](./code/gof/decorator/meuExemplo/Pedido.java)
 
-@[code](./code/gof/decorator/exemploGof/meuExemplo/Decorator.java)
+@[code](./code/gof/decorator/meuExemplo/Decorator.java)
 
-@[code](./code/gof/decorator/exemploGof/meuExemplo/HamburguerSimples.java)
+@[code](./code/gof/decorator/meuExemplo/HamburguerSimples.java)
 
-@[code](./code/gof/decorator/exemploGof/meuExemplo/DecoratorAddIngrediente.java)
+@[code](./code/gof/decorator/meuExemplo/DecoratorAddIngrediente.java)
 
 ## Usos conhecidos
 
