@@ -14,12 +14,10 @@ public class Picture extends Graphic {
     @Override
     public void draw() { /*Lógica...*/ }
 
-    @Override
     public void add(Graphic graphic) {
         children.add(graphic);
     }
 
-    @Override
     public void remove(Graphic graphic) {
         children.remove(graphic);
     }

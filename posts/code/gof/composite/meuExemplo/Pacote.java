@@ -39,14 +39,12 @@ public class Pacote extends Component {
         return id;
     }
 
-    @Override
     public void adicionar(Component... produtos) {
         for (Component produto : produtos) {
             children.add(produto);
         }
     }
 
-    @Override
     public void remover(Component... produtos) {
         for (Component produto : produtos) {
             children.remove(produto);
@@ -78,8 +76,8 @@ public class Pacote extends Component {
     }
 
     @Override
-    public Component clone() {
-        Component clone = new Pacote(nome, descricao, id);
+    public Pacote clone() {
+        Pacote clone = new Pacote(nome, descricao, id);
         children.forEach(
             child -> {
                 clone.adicionar(child.clone());

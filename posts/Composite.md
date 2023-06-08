@@ -27,7 +27,7 @@ Aplicações gráficas permitem aos usuários construir diagramas completos a pa
 Um problema presente nessa abordagem é que o código que usa essas classes deve tratar objetos primitivos e objetos recipientes de modo diferente, mesmo se na maioria das vezes o usuária vai tratar de forma idêntica. E distinguir a diferença entre os objetos torna a aplicação mais complexa.
 
 <p align="center">
-  <img src="./imagens/composite/estruturaExemploGof.png" alt="Estrutura de um objeto Composite">
+  <img src="./imagens/composite/estruturaExemploGof.svg" alt="Estrutura de um objeto Composite">
 </p>
 
 #####Código:
@@ -57,19 +57,19 @@ Criação da classe concreta `Cliente` que contém o método `main()` e demonstr
 @[code](./code/gof/composite/gofExemplo/Cliente.java)
 
 <p align="center">
-  <img src="./imagens/composite/estruturaMotivacao.png" alt="Estrutura de um objeto Composite">
+  <img src="./imagens/composite/estruturaMotivacao.svg" alt="Estrutura de um objeto Composite">
 </p>
 
 ## Estrutura
 
 <p align="center">
-  <img src="./imagens/composite/estrutura.png" alt="Estrutura de um objeto Composite">
+  <img src="./imagens/composite/estrutura.svg" alt="Estrutura de um objeto Composite">
 </p>
 
 Uma estrutura típica do Composite pode ser parecida com essa:
 
 <p align="center">
-  <img src="./imagens/composite/estruturaComposite.png" alt="Estrutura de um objeto Composite">
+  <img src="./imagens/composite/estruturaComposite.svg" alt="Estrutura de um objeto Composite">
 </p>
 
 ## Participantes
@@ -129,6 +129,10 @@ Benefícios e desvantagens do padrão Composite:
 ## Exemplo de código
 
 Considerando o cenário onde precisa ser desenvolvido um sistema para o gerenciamento de uma empresa e-commerce que vende produtos eletrônicos. A empresa vende variados tipos de eletrônicos como smartphones e tablets, cada produto possui informações específicas como nome, preço, descrição e id. Os clientes podem montar seus pacotes personalizados da maneira que quiser, contendo um ou mais produtos, independente do seu tipo. Esse pacotes podem conter outros pacotes dentro deles, formando assim a estrutura hierárquica.
+
+<p align="center">
+  <img src="./imagens/composite/estruturaMeuExemplo.svg" alt="Estrutura de um objeto Composite">
+</p>
 
 Criação da classe abstrata Component, que vai conter os métodos presente em todos os objetos, sejam eles Leaf ou Composite.
 
