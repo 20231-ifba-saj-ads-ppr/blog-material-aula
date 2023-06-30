@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as r,c as a}from"./app-55c2c12e.js";const t={};function c(o,n){return r(),a("div")}const s=e(t,[["render",c],["__file","AmandaSerpa.html.vue"]]);export{s as default};
