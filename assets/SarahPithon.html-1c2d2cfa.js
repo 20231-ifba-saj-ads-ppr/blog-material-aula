@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as t,c as o}from"./app-ec523e4b.js";const r={};function c(a,n){return t(),o("div")}const f=e(r,[["render",c],["__file","SarahPithon.html.vue"]]);export{f as default};
