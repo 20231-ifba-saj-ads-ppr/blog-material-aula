@@ -15,7 +15,7 @@ public class BorderDecorator extends Decorator{
         super.Draw();
     }
 
-    public void Scrollto() {
+    public void ScrollTo() {
         // Lógica do método...
     }
 }

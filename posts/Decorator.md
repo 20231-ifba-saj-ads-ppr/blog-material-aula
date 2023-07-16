@@ -23,14 +23,14 @@ Wrapper
 ## Motivação
 
 Em alguns momentos precisamos adicionar responsabilidades em objetos individuais, e não na classe como um todo. Por exemplo, um `toolkit` para construção de interfaces gráficas de usuário deveria permitir a adição de propriedades, como bordas ou comportamentos, como rolamento para qualquer componente da interface do usuário. 
-Uma forma de adicionar responsabilidade é a herança. Herdar uma borda de uma outra classe coloca uma borda em volta de todas as instâncias de uma subclasse. Essa abordagem seria inflexível, por que a borda é feita estaticamente, um cliente não pode controlar como e quyando decorar o componente com uma borda.
-Uma abordagem fléxivel é embutir o componente em outro objeto que acrescenta a borda, o objeto que envolve o primeiro é chamado de `decorator`. O decorator segue a interface do componente que decora, de modo que sua presença é transparente para os clientes do componente. O decorator repassa solicitações para o componente, podendo executar ações adicionais (tais como desenhar uma borda) antes ou depois do repasse. A transparência permite encaixar decoradores recursivamente, desta forma permitindo um número ilimitado de responsabilidades adicionais.  
+Uma forma de adicionar responsabilidade é a herança. Herdar uma borda de uma outra classe coloca uma borda em volta de todas as instâncias de uma subclasse. Essa abordagem seria inflexível, por que a borda é feita estaticamente, um cliente não pode controlar como e quando decorar o componente com uma borda.
+Uma abordagem flexível é embutir o componente em outro objeto que acrescenta a borda, o objeto que envolve o primeiro é chamado de `decorator`. O decorator segue a interface do componente que decora, de modo que sua presença é transparente para os clientes do componente. O decorator repassa solicitações para o componente, podendo executar ações adicionais (tais como desenhar uma borda) antes ou depois do repasse. A transparência permite encaixar decoradores recursivamente, desta forma permitindo um número ilimitado de responsabilidades adicionais.  
 Suponha que temos um objeto `TextView` que exibe texto em uma janela, como padrão o TextView não tem barras de rolamento porque nem sempre é necessário e quando for poderemos usar um ScrollDecorator para acrescentá-las. A mesma lógica é aplicada se quisermos adicionar uma borda preta ao redor do objeto TextView, ai podemos usar um objeto BorderDecorator para está finalidade.
 
 Estrutura do cenário:
 
 <p align="center">
-  <img src="./imagens/decorator/estruturaExemploMotivacaoGof.png" alt="Estrutura da motivação do GoF">
+  <img src="./imagens/decorator/estruturaExemploMotivacaoGof.svg" alt="Estrutura da motivação do GoF">
 </p>
 
 Código do cenário: 
@@ -76,7 +76,7 @@ Utilize o padrão Decorator:
 ## Estrutura
 
 <p align="center">
-  <img src="./imagens/decorator/estruturaDecorator.png" alt="Estrutura da motivação do GoF">
+  <img src="./imagens/decorator/estruturaDecorator.svg" alt="Estrutura da motivação do GoF">
 </p>
 
 ## Participantes
@@ -104,7 +104,7 @@ Utilize o padrão Decorator:
 
 ### Desvantagens
 
-- *Grande quantidade de pequenos objetos.* Um projeto que usa o `Decorator` freqüentemente resulta em sistemas compostos por uma grande quantidade de pequenos objetos parecidos.
+- *Grande quantidade de pequenos objetos.* Um projeto que usa o `Decorator` frequentemente resulta em sistemas compostos por uma grande quantidade de pequenos objetos parecidos.
 - Quanto mais `Decorators` em camadas, mais complexo seu código vai se tornar.
 
 ## Implementação
@@ -119,6 +119,12 @@ sempre delega para o objeto envolvido).
 7. O código cliente deve ser responsável por criar decoradores e compô-los do jeito que o cliente precisa.
 
 ## Exemplo de código
+
+O código a seguir é um exemplo da utilização do padrão Decorator, nele contém a implementaçao de um sistema de pedidos de hambúrgueres. O cenário envolve a criação de `HamburguerSimples` com a possibilidade de adicionar ingredientes extras. 
+
+<p align="center">
+  <img src="./imagens/decorator/estruturaMeuExemplo.svg" alt="Estrutura da motivação do GoF">
+</p>
 
 @[code](./code/gof/decorator/meuExemplo/Client.java)
 

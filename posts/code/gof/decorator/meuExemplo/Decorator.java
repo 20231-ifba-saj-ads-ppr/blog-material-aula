@@ -11,4 +11,16 @@ public class Decorator extends Pedido{
     public void preparar() {
         // Lógica do método...
     }
+
+    @Override
+    public String getIngredientes() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getIngredientes'");
+    }
+
+    @Override
+    public double getValor() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getValor'");
+    }
 }
