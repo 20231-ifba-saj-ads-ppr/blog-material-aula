@@ -259,4 +259,6 @@
 
 [^JogoSelva]: Jogo Selva [https://brainking.com/pt/GameRules?tp=56](https://brainking.com/pt/GameRules?tp=56)
 
+[^JavaLifeCycleExecute]: LifeCycle.execute() - Java Docs: [https://docs.oracle.com](https://docs.oracle.com/javaee/7/api/javax/faces/lifecycle/Lifecycle.html#execute-javax.faces.context.FacesContext-);
+
 
