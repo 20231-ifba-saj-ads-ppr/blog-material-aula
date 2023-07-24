@@ -9,8 +9,6 @@ tag:
 # Template Method
 
 [^GAMMA]
-[^SourceMaking]
-[^ODesign]
 
 
 ## Intenção
@@ -28,9 +26,9 @@ Podemos então utilizar o template method, com eles definimos o esqueleto que po
 abstract class  "ModeloImovel"{
  ...
  +construirPlanta()
- -construirFundacao()
- -construirPilares()
- -construirParedes()
+ +{abstract} construirFundacao()
+ +{abstract} construirPilares()
+ +{abstract} construirParedes()
  +construirJanelas()
  +construirPortas()
 }
@@ -74,17 +72,17 @@ Use o padrão Template Method quando:
 abstract class  "AbstractClass"{
  ...
  +templateMethod()
- +operação1()
- +operação2()
- +operação3()
- +operação4()
+ +operacao1()
+ +operacao2()
+ +operacao3()
+ +operacao4()
 }
 
 
 class ConcreteClass{
  ...
- +operação2()
- +operação3()
+ +operacao2()
+ +operacao3()
 }
 
 
@@ -108,9 +106,9 @@ AbstractClass ^-- ConcreteClass
 - O método-template que é definido pela `AbstractClass` invoca operações primitivas, como também operações definidas em `AbstractClass` ou em outros objetos. Assim a `ConcreteClass` depende da `AbstractClass` para implementar os passos que não variam do algoritmo.
 
 
-## Consequências
+## Consequências 
 
-O padrão Template Method tem os seguintes benefícios e desvantagens:
+O padrão Template Method tem os seguintes benefícios e desvantagens: [^REFACTORING_GURU]
 
 - **Benefícios**
     
@@ -144,11 +142,12 @@ e as demais classes concretas, assim:
 
 O template method pode ser encontrado em quase todas as classes abstratas.
 
-## Padrão relacionados
+## Padrão relacionados 
 
 ***Strategy*** : O template method usa a herança para variar parte de um algoritmo, já o strategy é baseado em composição, para variar o algoritimo inteiro. O Template Method funciona a nível de classe, então é estático. O Strategy trabalha a nível de objeto, permitindo a troca de comportamentos durante a execução.
 
 ***Factory Method*** : O template method costuma chamar com frequencia as factory methods. 
+[^REFACTORING_GURU]
 
 ## Referências
 

@@ -1,4 +1,4 @@
-public abstract class templateJogoTabuleiro {
+public abstract class TemplateJogoTabuleiro {
 
     // atributos necessarios
 

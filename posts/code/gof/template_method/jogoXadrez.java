@@ -1,4 +1,4 @@
-public class jogoXadrez extends templateJogoTabuleiro {
+public class JogoXadrez extends TemplateJogoTabuleiro {
 
     float alturaTabuleiro, larguraTabuleiro;
     String regrasXadrez;

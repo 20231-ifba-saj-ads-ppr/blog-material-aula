@@ -1,4 +1,4 @@
-public class jogoSelva extends templateJogoTabuleiro {
+public class JogoSelva extends TemplateJogoTabuleiro {
 
     float alturaTabuleiro, larguraTabuleiro;
     String regrasSelva;
