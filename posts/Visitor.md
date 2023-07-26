@@ -27,7 +27,7 @@ O problema aqui é que distribuir todas essas operações pelas várias classes-
 Podemos ter as duas coisas empacotando as operações relacionadas de cada classe num objeto separado, chamado um visitor (visitante), e passando para ele elementos da árvore sintática abstrata à medida que a mesma é percorrida. Quando um elemento “aceita” o visitante, envia uma solicitação para o visitante que codifica a classe do elemento. Ela também inclui o elemento como argumento. O visitante então executará a operação para aquele elemento, operação que costumava estar na classe do elemento.
 
 <p align="center">
-  <img src="imagens/estruturaExemploGof.svg" alt="Estrutura Visitor">
+  <img src="imagens/visitor/estruturaExemploGof.svg" alt="Estrutura Visitor">
 </p>
 
 @[code](./code/gof/visitor/gofExemplo/NodeVisitor.java)
@@ -45,12 +45,19 @@ Podemos ter as duas coisas empacotando as operações relacionadas de cada class
 ## Estrutura
 
 <p align="center">
-  <img src="imagens/estrutura.svg" alt="Estrutura Visitor">
+  <img src="imagens/visitor/estrutura.svg" alt="Estrutura Visitor">
 </p>
 
 ## Participantes
 
-
+- Visitor (NodeVisitor)
+  - Declara uma operação Visit para cada classe ConcreteElement na estrutura do objeto.
+- ConcreteVisitor (TypeCheckingVisitor, CodeGeneratingVisitor)
+  - Implementa cada operação declarada por Visitor.
+- Element (Node)
+  - Define uma operação `Accept` que aceita um visitante como um argumento.
+- ConcreteElement (AssignmentNode, VariableRefNode)
+  - Implementa uma operação `Accept` que aceita um visitante como um argumento.
 
 ## Aplicabilidade
 
@@ -101,13 +108,47 @@ Podemos ter as duas coisas empacotando as operações relacionadas de cada class
 
 ## Exemplo de código
 
+Em um cenário de uma loja de importação e exportação de produtos entre Brasil e EUA, a loja vende três categorias de produtos: comida, cigarro e bebida alcoólica. Cada produto tem seu valor base e ao vender esses produtos para outro país é preciso aplicar impostos específicos para cada tipo de produto e país.
+Aplicando o padrão `Visitor` nesse cenário, conseguimos tirar a operação de calcular o imposto dos objetos que utilizam desta operação. Permitindo que novas operações sejam adicionadas no sistema sem modificar a estrutura dos produtos, tornando o código mais flexível, extensível e de fácil manutenção. 
+
+<p align="center">
+  <img src="imagens/visitor/estruturaMeuExemplo.svg" alt="Estrutura Visitor">
+</p>
+
+Classe `ProdutoVisitor`: 
+
+@[code](./code/gof/visitor/meuExemplo/ProdutoVisitor.java)
+
+Classe `Comida`: 
+
+@[code](./code/gof/visitor/gofExemplo/Comida.java)
+
+Classe `Cigarro`: 
+
+@[code](./code/gof/visitor/gofExemplo/Cigarro.java)
+
+Classe `BebidaAlcoolica`: 
+
+@[code](./code/gof/visitor/gofExemplo/BebidaAlcoolica.java)
+
+Classe `TaxaVisitor`: 
+
+@[code](./code/gof/visitor/gofExemplo/TaxaVisitor.java)
+
+Classe `EuaTaxaVisitor`: 
+
+@[code](./code/gof/visitor/gofExemplo/EuaTaxaVisitor.java)
+
+Classe `BrasilTaxaVisitor`: 
+
+@[code](./code/gof/visitor/gofExemplo/BrasilTaxaVisitor.java)
 
 
 ## Usos conhecidos
 
 - **Editores de texto:** Utilizam o padrão `Visitor` para realizar operações em diferentes elementos da estrutura de um documento, como imagens, parágrafos, tabelas e entre outros elementos presentes em editores de texto. 
 
-- **Sistema de renderização gráfica:** Utilizam o padrão `Visitor` para percorrer estruturas de obketos gráficos e realizar operações específicas em cada um deles, como transformações geométricas.
+- **Sistema de renderização gráfica:** Utilizam o padrão `Visitor` para percorrer estruturas de objetos gráficos e realizar operações específicas em cada um deles, como transformações geométricas.
 
 ## Padrão relacionados
 
@@ -116,3 +157,6 @@ Podemos ter as duas coisas empacotando as operações relacionadas de cada class
 **Padrão Interpreter:** O `Visitor` pode ser aplicado para efetuar a interpretação.
 
 ## Referências
+
+- Gamma Erich - Padrões de Projetos - Soluções Reutilizáveis
+- Otávio Miranda - Visitor Prática e Teoria - Padrões de Projeto - Parte 45/45 https://www.youtube.com/watch?v=5PRG7rT2dcU
