@@ -80,6 +80,28 @@ Para fazer a transição do contexto para outro estado, é possivel substituir o
 
 Nota: Essa estrutura pode ser parecida com o padrão [Strategy](/04_Strategy.md), mas há uma diferença chave. No padrão State, os estados em particular podem estar cientes de cada um e iniciar transições de um estado para outro, enquanto que estratégias quase nunca sabem sobre as outras estratégias.
 
+Já que os estados direcionam as transições de um para o outro, aqui está um diagrama de estados para melhor entendimento do exemplo:
+
+<figure>
+
+```plantuml
+@startuml
+[*] -> Draft
+Draft--> Moderation: Move to Moderation state
+
+Moderation-> Published :  Move to Published state
+
+Published-> [*]: Does nothing
+
+@enduml
+```
+
+<figcaption>Diagrama de estados.</figcaption>
+</figure>
+
+O círculo preenchido a esquerda do diagrama representa o início do fluxo dos estados e o círculo somente com o centro preenchido a direita do diagrama representa o final do fluxo dos estados.
+
+
 ## Aplicabilidade
 
 Use o padrão **State** quando:
@@ -133,7 +155,7 @@ hide empty methods
 
 - **Context** (Document)
     - define a interface de interesse para os clientes;
-    - mantém uma instância de ConcreteState que define o estado atual;
+    - mantém uma instância de State que define o estado atual;
 - **State** (DocumentState)
     - define uma interface para encapsulamento associado com um determinado estado do Context;
 - **ConcreteState** (Draft, Moderation, Published)
@@ -142,7 +164,7 @@ hide empty methods
 
 ## Colaborações
 
- - Context delega solicitações específicas de estados para o objeto atual ConcreteState.
+ - Context delega solicitações específicas de estados para o objeto atual State.
  - Um contexto pode passar a si próprio como um argumento para o objeto State que trata a solicitação. Isso permite ao objeto State acessar o contexto, se necessário.
 
 ## Consequências
