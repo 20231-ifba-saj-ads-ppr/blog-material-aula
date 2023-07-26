@@ -28,13 +28,13 @@ Você pode evitar esses problemas encapsulando o comportamento coletivo em um ob
 Por exemplo, `FontDialogDirector` pode ser um mediador entre os widgets numa caixa de diálogo. Um objeto `FontDialogDirector` conhece os widgets de um diálogo e coordena sua interação. Ele funciona como um centro concentrador de comunicações para os widgets:
 
 <p align="center">
-  <img src="imagens/fontDialogDirector.svg" alt="Estrutura Mediator">
+  <img src="imagens/mediator/fontDialogDirector.svg" alt="Estrutura Mediator">
 </p>
 
-Eis como a abstração FontDialogDirector pode ser integrada em uma biblioteca de classes:
+Como a abstração FontDialogDirector pode ser integrada em uma biblioteca de classes:
 
 <p align="center">
-  <img src="imagens/estruturaExemploGof.svg" alt="Estrutura Mediator">
+  <img src="imagens/mediator/estruturaExemploGof.svg" alt="Estrutura Mediator">
 </p>
 
 @[code](./code/gof/mediator/gofExemplo/DialogDirector.java)
@@ -50,7 +50,7 @@ Eis como a abstração FontDialogDirector pode ser integrada em uma biblioteca d
 ## Estrutura
 
 <p align="center">
-  <img src="imagens/estrutura.svg" alt="Estrutura Mediator">
+  <img src="imagens/mediator/estrutura.svg" alt="Estrutura Mediator">
 </p>
 
 ## Participantes
@@ -68,7 +68,7 @@ Eis como a abstração FontDialogDirector pode ser integrada em uma biblioteca d
 
 - Utilize o `Mediator` quando é difícil mudar algumas das classes porque elas estão firmemente acopladas a várias outras classes. O padrão permite extrair todas as relações entre classes para uma classe separada.
 
-- Utilize o `Mediator` quando um conjunto de objetos se comunica de maneiras bem definidas, porém complexas. As interdependências resultantes são desestruturadas e difícies de entender.
+- Utilize o `Mediator` quando um conjunto de objetos se comunica de maneiras bem definidas, porém complexas. As interdependências resultantes são desestruturadas e difíceis de entender.
 
 - Utilize o `Mediator` quando a reutilização de um objeto é difícil porque ele referencia e se comunica com muitos outros objetos.
 
@@ -92,7 +92,7 @@ Eis como a abstração FontDialogDirector pode ser integrada em uma biblioteca d
 
 ### Desvantagens
 
-**1 - Ele centraliza o controle:** O `Mediator` troca a complexidade de interação pela complexidade no mediador. Porque um mediador encapsula protocolos, pode se tornar mais complexo do que qualquer dos colegas individuais. Isso pode tornar o mediador um monolito díficil de manter.
+**1. Ele centraliza o controle:** O `Mediator` troca a complexidade de interação pela complexidade no mediador. Porque um mediador encapsula protocolos, pode se tornar mais complexo do que qualquer dos colegas individuais. Isso pode tornar o mediador um monólito difícil de manter.
 
 ## Implementação
 
@@ -104,10 +104,31 @@ Eis como a abstração FontDialogDirector pode ser integrada em uma biblioteca d
 
 ## Exemplo de código
 
+Considerando um cenário em que temos vendedores e compradores de produtos, tipo o Mercado Livre, Shein, Shopee e entre outros marketplaces. Ambos os tipos de usuários acabam realizando uma comunicação entre eles, que é a venda do produto de um para o outro. Sendo assim podemos utilizar o padrão `Mediator` para tornar essa comunicação mais organizada e criar menos dependencia entre os objetos envolvidos. Ele vai atuar como um mediador central, permitindo que os vendedores e compradores se comuniquem indiretamente.
+
+Classe `Produto`:
+
+@[code](./code/gof/mediator/meuExemplo/Produto.java)
+
+Classe `Mediador`: 
+
+@[code](./code/gof/mediator/meuExemplo/Mediador.java)
+
+Classe `Vendedor`: 
+
+@[code](./code/gof/mediator/meuExemplo/Vendedor.java)
+
+Classe `Comprador`: 
+
+@[code](./code/gof/mediator/meuExemplo/Comprador.java)
+
+Classe `Cliente`: 
+
+@[code](./code/gof/mediator/meuExemplo/Cliente.java)
 
 ## Usos conhecidos
 
-- **Jogos multiplayer:** Nesses jogos onde vários jogadores interagem entre si, o `Mediator` pode ser usado para o servidor do jogo, que por sua vez os distribui para os jogadores relevantes.
+- **Jogos multiplayer:** Nesses jogos onde vários jogadores interagem entre si, o `Mediator` pode ser usado para mediar as ações dos jogadores com o servidor do jogo, que por sua vez os distribui para os jogadores relevantes.
 
 - **Comunicação em tempo real:** Quando várias pessoas precisam se comunicar em tempo real, o`Mediator` pode gerenciar a troca de mensagens entre as pessoas, permitindo essa conexão sem eles terem conhecimento direto um do outro.
 
@@ -119,3 +140,6 @@ Eis como a abstração FontDialogDirector pode ser integrada em uma biblioteca d
 
 ## Referências
 
+- Gamma Erich - Padrões de Projetos - Soluções Reutilizáveis
+- Otávio Miranda - Mediator Teoria - Padrões de Projeto - Parte 35/45 https://www.youtube.com/watch?v=fb7NrdCo4Ko
+- Otávio Miranda - Mediator Prática - Padrões de Projeto - Parte 36/45 https://www.youtube.com/watch?v=LogAsgJSXBw

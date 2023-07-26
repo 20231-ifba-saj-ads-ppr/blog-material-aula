@@ -13,7 +13,7 @@ public class EntryField extends Widget {
     }
 
     public void setText() {
-        //Lógica para pegar o texto que foi escrito no EntryField
+        //Lógica para salvar o texto que foi escrito no EntryField
     }
     
 }
