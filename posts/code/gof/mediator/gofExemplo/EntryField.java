@@ -4,7 +4,6 @@ public class EntryField extends Widget {
 
     public EntryField(DialogDirector director) {
         super(director);
-        //TODO Auto-generated constructor stub
     }
 
     @Override

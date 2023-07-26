@@ -14,7 +14,7 @@ excerpt: Apresentação do Padrão de Projeto Mediator
 
 ## Intenção 
 
-Definir um objeto que encapsula a forma como um conjunto de objetos interage. O Mediator promove o acoplamento fraco ao evitar que os objetos se refiram uns aos outros explicitamente e permite variar suas interações independentemente.
+Definir um objeto que encapsula a forma como um conjunto de objetos interagem entre si. O Mediator promove o acoplamento fraco ao evitar que os objetos se refiram uns aos outros explicitamente e permite variar suas interações independentemente.
 
 ## Também conhecido como
 
@@ -23,9 +23,10 @@ Intermediary
 ## Motivação
 
 Um projeto orientado a objetos distribui comportamentos entre vários objetos, esta distribuição pode resultar em uma estrutura com muitas conexões entre eles e no pior cenário, cada objeto acaba tendo conhecimento sobre todos os outros. Embora particionar o sistema em vários objetos melhore a sua reusabilidade, a criação de muitas interconexões tende a reduzir novamente. Muitas interconexões tornam menos provável que um objeto possa funcionar sem o apoio do outro, onde o sistema funciona como se fosse monolítico. 
-Pode ser difícil mudar o comportamento do sistema de maneira significativa, uma vez que o comportamento está distribuído entre muitos objetos. Com isso, você pode ser forçado a definir muitas subclasses para customizar e adaptar o comportamento do sistema.
-Você pode evitar esses problemas encapsulando o comportamento coletivo em um objeto `mediator`, ele será responsável pelo controle e coordenação das interações de um grupo de objetos. O mediador funciona como um intermediário que evita que os objetos do grupo referenciem uns aos outros explicitamente, os objetos conhecem apenas seu mediador.
-Por exemplo, `FontDialogDirector` pode ser um mediador entre os widgets numa caixa de diálogo. Um objeto `FontDialogDirector` conhece os widgets de um diálogo e coordena sua interação. Ele funciona como um centro concentrador de comunicações para os widgets:
+
+Pode ser difícil mudar o comportamento do sistema de maneira significativa, uma vez que o comportamento está distribuído entre muitos objetos. Com isso, você pode ser forçado a definir muitas subclasses para customizar e adaptar o comportamento do sistema. Você pode evitar esses problemas encapsulando o comportamento coletivo em um objeto `Mediator`, ele será responsável pelo controle e coordenação das interações de um grupo de objetos. O `Mediator` funciona como um intermediário que evita que os objetos do grupo referenciem uns aos outros explicitamente, os objetos conhecem apenas seu mediador.
+
+Por exemplo, `FontDialogDirector` pode ser um mediador entre os widgets numa caixa de diálogo. Um objeto `FontDialogDirector` conhece os widgets de um diálogo e coordena sua interação. Ele funciona como um centro  de comunicações para os widgets:
 
 <p align="center">
   <img src="imagens/mediator/fontDialogDirector.svg" alt="Estrutura Mediator">
@@ -59,10 +60,9 @@ Como a abstração FontDialogDirector pode ser integrada em uma biblioteca de cl
   - define uma interface para comunicação com objetos de classe `Colleague`.
 - **ConcretMediator**(FontDialogDirector)
   - implementa comportamento cooperativo através da coordenação de objetos de classe `Colleague`.
-  - conhece e mantém seus colegas.
 - **Colleague classes**(ListBox, EntryField)
   - cada classe `Collegue` conhece seu objeto `Mediator` de outra forma.
-  - cada colega se comunica com o seu mediador sempre que, de outra forma, teria que se comunicar com outro colega.
+  - cada colega se comunica com o seu mediador sempre que tiver que se comunicar com outro colega.
 
 ## Aplicabilidade
 
@@ -76,7 +76,7 @@ Como a abstração FontDialogDirector pode ser integrada em uma biblioteca de cl
 
 ## Colaborações
 
-- Colegas enviam e recebem solicitações de um objeto Mediator. O mediador implementa comportamento cooperativo pelo direcionamento das solicitações para os colegas apropriados.
+- Colegas enviam e recebem solicitações de um objeto `Mediator`. O mediador implementa comportamento cooperativo pelo direcionamento das solicitações para os colegas apropriados.
 
 ## Consequências
 
@@ -96,7 +96,7 @@ Como a abstração FontDialogDirector pode ser integrada em uma biblioteca de cl
 
 ## Implementação
 
-- Omissão da classe abstrata `Mediator`. Quando não há necessidade de definir uma classe abstrata `Mediator` quando os colegas trabalham apenas com um mediador.
+- Omissão da classe abstrata `Mediator`. Quando não há necessidade de definir uma classe abstrata `Mediator`, pois os colegas trabalham apenas com um mediador.
 
 - Comunicação Colleague-Mediator. Colegas têm que se comunicar com o seu mediador quando ocorre um evento de interesse.
 
@@ -104,7 +104,7 @@ Como a abstração FontDialogDirector pode ser integrada em uma biblioteca de cl
 
 ## Exemplo de código
 
-Considerando um cenário em que temos vendedores e compradores de produtos, tipo o Mercado Livre, Shein, Shopee e entre outros marketplaces. Ambos os tipos de usuários acabam realizando uma comunicação entre eles, que é a venda do produto de um para o outro. Sendo assim podemos utilizar o padrão `Mediator` para tornar essa comunicação mais organizada e criar menos dependencia entre os objetos envolvidos. Ele vai atuar como um mediador central, permitindo que os vendedores e compradores se comuniquem indiretamente.
+Considerando um cenário em que temos vendedores e compradores de produtos, tipo o Mercado Livre, Shein, Shopee e entre outros marketplaces. Ambos os tipos de usuários acabam realizando uma comunicação entre eles, que é a venda do produto de um para o outro. Sendo assim podemos utilizar o padrão `Mediator` para tornar essa comunicação mais organizada e criar menos dependência entre os objetos envolvidos. Ele vai atuar como um mediador central, permitindo que os vendedores e compradores se comuniquem indiretamente.
 
 <p align="center">
   <img src="imagens/mediator/estruturaMeuExemplo.svg" alt="Estrutura Mediator">
@@ -118,7 +118,11 @@ Classe `Mediador`:
 
 @[code](./code/gof/mediator/meuExemplo/Mediador.java)
 
-Classe `Vendedor`: 
+Classe `Usuario`: 
+
+@[code](./code/gof/mediator/meuExemplo/Usuario.java)
+
+Classe `Vendedor`:
 
 @[code](./code/gof/mediator/meuExemplo/Vendedor.java)
 

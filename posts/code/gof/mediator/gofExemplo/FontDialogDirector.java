@@ -5,13 +5,6 @@ public class FontDialogDirector extends DialogDirector {
     public List<Widget> widgets = new ArrayList<>();
 
     @Override
-    public void showDialog() {
-        for (Widget widget : widgets) {
-            widget.changed();
-        }
-    }
-
-    @Override
     public void createWidgets() {
         widgets.add(new ListBox(this));
         widgets.add(new EntryField(this));
