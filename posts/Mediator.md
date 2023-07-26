@@ -106,6 +106,10 @@ Como a abstração FontDialogDirector pode ser integrada em uma biblioteca de cl
 
 Considerando um cenário em que temos vendedores e compradores de produtos, tipo o Mercado Livre, Shein, Shopee e entre outros marketplaces. Ambos os tipos de usuários acabam realizando uma comunicação entre eles, que é a venda do produto de um para o outro. Sendo assim podemos utilizar o padrão `Mediator` para tornar essa comunicação mais organizada e criar menos dependencia entre os objetos envolvidos. Ele vai atuar como um mediador central, permitindo que os vendedores e compradores se comuniquem indiretamente.
 
+<p align="center">
+  <img src="imagens/mediator/estruturaMeuExemplo.svg" alt="Estrutura Mediator">
+</p>
+
 Classe `Produto`:
 
 @[code](./code/gof/mediator/meuExemplo/Produto.java)

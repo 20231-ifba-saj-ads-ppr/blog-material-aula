@@ -1,10 +1,9 @@
 
-
-public class Comprador {
+public class Comprador extends Usuario {
     private Mediador mediador;
 
-    public Comprador(Mediador mediator) {
-        this.mediador = mediator;
+    public void setMediador(Mediador mediador) {
+        this.mediador = mediador;
     }
 
     public void visualizarProdutos() {

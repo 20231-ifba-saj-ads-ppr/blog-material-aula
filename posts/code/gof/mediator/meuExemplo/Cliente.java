@@ -16,7 +16,8 @@ public class Cliente {
 
         mediador.adicionarVendedor(vendedor1, vendedor2);
 
-        Comprador comprador1 = new Comprador(mediador);
+        Comprador comprador1 = new Comprador();
+        comprador1.setMediador(mediador);
         mediador.visualizarProdutos();
         /*ID: 1
         Nome: Celular
