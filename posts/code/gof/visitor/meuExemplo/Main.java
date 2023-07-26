@@ -23,5 +23,10 @@ public class Main {
         System.out.println("Total: " + total);
         System.out.println("Total com impostos no Brasil: " + totalComImpostosBrasil);
         System.out.println("Total com impostos nos EUA: " + totalComImpostosEUA);
+        /*
+        Total: 20.0
+        Total com impostos no Brasil: 30.0
+        Total com impostos nos EUA: 36.0
+        */
     }
 }
