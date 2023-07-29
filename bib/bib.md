@@ -116,7 +116,7 @@
 
 [^SourceMaking]: Object Pool Design Pattern. [https://sourcemaking.com/design_patterns/object_pool](https://sourcemaking.com/design_patterns/object_pool) 
 
-[^ODesign]: Object Pool Pattern. [https://www.oodesign.com/object-pool-pattern](https://www.oodesign.com/object-pool-pattern)
+[^ODesign]: Design Patterns. [https://www.oodesign.com](https://www.oodesign.com)
 
 [^BestPratice]: Best Practice Software Engineering - Object Pool. [http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/objectpool.html](http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/objectpool.html) 
 
