@@ -1,9 +1,11 @@
 # Padrões de projeto para serem utilizados em jogos de tabuleiro
 
 ## Padrões criacionais 
-- ### Builder
+### Builder
+
 #### Intenção
 Separar a construção de um objeto complexo da sua representação de modo que o mesmo processo de construção possa criar diferentes representações.
+
 #### Estrutura
 
 <figure>
@@ -106,7 +108,7 @@ public class Tabuleiro {
 }
 ```
 
-- ### Prototype
+### Prototype
 #### Intenção
 Especificar os tipos de objetos a serem criados usando uma  instância-protótipo e criar novos objetos pela cópia desse protótipo.
 #### Estrutura
@@ -202,7 +204,7 @@ public class Main {
 ```
 
 
-- ### Singleton 
+### Singleton 
 #### Intenção
 Garantir que uma classe tenha somente uma instância e fornecer um ponto global de acesso para a mesma.
 
@@ -265,7 +267,8 @@ public final class Singleton {
 ```
 
 
-- ### Object Pool
+### Object Pool
+
 #### Intenção
 Tem como objetivo reaproveitar objetos, criando pré-instancias de objetos que poderão ser solicitados a qualquer momento.
 
@@ -340,21 +343,22 @@ public class PoolDePecas extends PoolDeObjetos<Peca>{
 
 ```
 
-- ### Abstract Factory
+### Abstract Factory
 #### Intenção
 Fornecer uma interface para criação de famílias de objetos relacionados ou dependentes sem especificar suas classes concretas.
 #### Estrutura
+
+<figure>
+
 ```plantuml
 @startuml
-
-
-
 
 hide empty attributes
 hide empty methods
 
 @enduml
 ```
+
 <figcaption>Estrutura Abstract Factory.</figcaption>
 </figure>
 
@@ -366,7 +370,7 @@ O padrão abstract factory pode se encaixar nesse framework por permitir a produ
 
 ## Padrões estruturais 
 
-- ### Facade
+### Facade
 #### Intenção
 Fornecer uma interface unificada para um conjunto de interfaces em um subsistema.Facade define uma interface de nível mais alto que torna o subsistema mais fácil de ser usado.
 #### Estrutura
@@ -418,7 +422,7 @@ hide empty methods
 #### Utilização
 O facade fornece uma interface simples para um framework ou até uma classe mais complexa, com ele vamos mostrar as funcionalidades que os clientes se importam, com essa ideia podemos fazer com que o cliente se comunique com o facade, que irá se comunicar com a classe necessaria para fazer o que o cliente quer, por exemplo, o cliente solicita um jogo que necessita de uma determinada peça, o facade irá se comunicar com o builder e enviar a requisição do cliente para que o builder possa fazer a criação da peça, ele também pode se comunicar com o prototype caso precise do clone de alguma peça ou tabuleiro. A ideia é que ele possa se comunicar com outras classes ou frameworks complexos de acordo com a necessidade do jogador (cliente).
 
-- ### Decorator
+### Decorator
 #### Intenção
 Dinamicamente, agregar responsabilidades adicionais a um objeto. Os Decorators fornecem uma alternativa flexível ao uso de subclasses para extensão de funcionalidades.
 #### Estrutura
@@ -476,7 +480,7 @@ O decorator é um padrão que permite adicionar novos comportamentos a um objeto
 
 ## Padrões comportamentais
 
-- ### Template Method
+### Template Method
 #### Intenção
 O template method tem como objetivo definir o esqueleto de um algortimo em uma operação, que poderá ser utilizado por uma subclasse.
 #### Estrutura
@@ -590,7 +594,7 @@ public class JogoXadrez extends TemplateJogoTabuleiro {
 
 ```
 
-- ### Strategy
+### Strategy
 #### Intenção
 Definir uma família de algoritmos, encapsular cada uma delas e torná-las intercambiáveis, permitindo que o algoritmo varie independentemente dos clientes que o utilizam. 
 #### Estrutura
@@ -696,7 +700,7 @@ public class SeMovimentar {
 ```
 
 
-- ### Chain of Responsability
+### Chain of Responsability
 #### Intenção
 Evitar o acoplamento do remetente de uma solicitação ao seu receptor, ao dar a mais de um objeto a oportunidade de tratar a solicitação. Encadear os objetos receptores, passando a solicitação ao longo da cadeia até que um objeto a trate.
 #### Estrutura
@@ -748,7 +752,7 @@ hide empty methods
 #### Utilização
 Esse padrão permite que você passe as requisições por uma corrente de handlers, quando o pedido chega, cada handler decide se processa o pedido ou passa adiante. No caso de um jogo de tabuleiro poderiamos utilizar esse padrão para repassar algumas requisições, por exemplo, quando o usuario der um new para criar algum jogo de tabuleiro, ele irá chamar o metodo de criação daquele jogo, e dentro disso existem outros metodos que levam por exemplo ao uso de outras classes e padrões, com isso é utilizado uma cadeia de responsabilidades, que passará para o handler que irá passar para quem for o responsavel de resolver o "problema".
 
-- ### Memento
+### Memento
 #### Intenção
 Sem violar o encapsulamento, capturar e externalizar um estado interno de um objeto, de maneira que o objeto possa ser restaurado para esse estado mais tarde.
 #### Estrutura
